@@ -1,4 +1,4 @@
-# React - Book Store 
+# React - Book Store (CMS)
 
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
