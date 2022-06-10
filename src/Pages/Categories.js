@@ -1,5 +1,9 @@
 import React from 'react';
 
-const Categories = () => <h2>Categories Page</h2>;
+function Categories (){
+    return (
+        <button>Check status</button>
+    )
+};
 
 export default Categories;
