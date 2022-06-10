@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../App.css'
 
 function Header() {
   return (
-    <div>
+    <div className="header-container">
       <h1>Bookstore (CMS)</h1>
       <div>
-        <ul>
-          <li><Link to="/">Books</Link></li>
-          <li><Link to="/categories">Categories</Link></li>
+        <ul className="header-list">
+          <li className="header-link"><Link to="/">Books</Link></li>
+          <li className="header-link"><Link to="/categories">Categories</Link></li>
         </ul>
       </div>
     </div>

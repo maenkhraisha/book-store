@@ -6,6 +6,8 @@ import Header from './components/Header';
 import Books from './Pages/Books';
 import Categories from './Pages/Categories';
 
+
+
 function App() {
   return (
     <div>
@@ -14,11 +16,11 @@ function App() {
         <Routes>
           <Route
             path="/books"
-            element={<Books />}
+            element={<Books/>}
           />
           <Route
             path="*"
-            element={<Books />}
+            element={<Books/>}
           />
           <Route
             path="/categories"

@@ -1,5 +1,16 @@
-import React from 'react';
+import React from "react";
+import Book from '../components/Book';
 
-const Books = () => <h2>Book Page</h2>;
+let bookList = [{
+    categorie: 'Action',
+    title: 'The Hunger Games',
+    author: 'Suzanne Collins'
+  }];
 
+function Books(props) {
+    console.log(props);
+  return (
+    <Book  books={bookList} />
+  );
+}
 export default Books;
