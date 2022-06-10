@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-const Header = () => {
-  return <h1>Bookstore (CMS)</h1>;
-};
+function Header() {
+  <h1>Bookstore </h1>;
+}
 
 export default Header;
