@@ -1,10 +1,10 @@
-import React from "react";
-import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from 'react';
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Header from "./components/Header";
-import Books from "./Pages/Books";
-import Categories from "./Pages/Categories";
+import Header from './components/Header';
+import Books from './Pages/Books';
+import Categories from './Pages/Categories';
 
 function App() {
   return (
@@ -12,13 +12,17 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route 
-            path="/books" 
-            element={<Books />} 
-            />
-          <Route 
-            path="/categories" 
-            element={<Categories />} 
+          <Route
+            path="/books"
+            element={<Books />}
+          />
+          <Route
+            path="*"
+            element={<Books />}
+          />
+          <Route
+            path="/categories"
+            element={<Categories />}
           />
         </Routes>
       </Router>
