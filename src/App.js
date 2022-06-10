@@ -1,10 +1,9 @@
 import './App.css';
+import Header from './components/Header.js'
 
 function App() {
   return (
-    <div>
-      <h1>This is Book Sotre</h1>
-    </div>
+    <Header />
   )
 }
 
