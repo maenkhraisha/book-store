@@ -1,16 +1,22 @@
 import React from "react";
-import Book from '../components/Book';
+import Book from "../components/Book";
+import AddBook from "../components/AddBook";
 
-let bookList = [{
-    categorie: 'Action',
-    title: 'The Hunger Games',
-    author: 'Suzanne Collins'
-  }];
+let bookList = [
+  {
+    categorie: "Action",
+    title: "The Hunger Games",
+    author: "Suzanne Collins",
+  },
+];
 
 function Books(props) {
-    console.log(props);
+  console.log(props);
   return (
-    <Book  books={bookList} />
+    <div>
+      <Book books={bookList} />
+      <AddBook />
+    </div>
   );
 }
 export default Books;
