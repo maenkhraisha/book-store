@@ -1,20 +1,22 @@
 import React from 'react';
 
-function Book(props) {
-    return(
-        <div>
-        <ul>
-          <li>
-            <p>{props.books[0].categorie}</p>
-            <p>{props.books[0].title}</p>
-            <p>{props.books[0].author}</p>
-            <button>Comments</button>
-            <button>Remove</button>
-            <button>Edit</button>
-          </li>
-        </ul>
-      </div>
-    )
-}
+const Book = (props) => {
+  /* eslint-disable react/prop-types */
+  const { books } = props;
+  return (
+    <div>
+      <ul>
+        <li>
+          <p>{books.categorie}</p>
+          <p>{books.title}</p>
+          <p>{books.author}</p>
+          <button type="button">Comments</button>
+          <button type="button">Remove</button>
+          <button type="button">Edit</button>
+        </li>
+      </ul>
+    </div>
+  );
+};
 
 export default Book;

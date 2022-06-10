@@ -7,19 +7,19 @@ ul {
 }
 
 /* ******* */
+
 /* Header  */
+
 /* ******* */
 
 .header-container {
   display: flex;
- }
+}
 
 .header-list {
   display: flex;
 }
 
-.header-link{
+.header-link {
   margin-left: 1rem;
 }
-
-
