@@ -1,25 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import {bookState} from "./redux/books/books-state";
 
-const bookList = [{
-  key:1,
-  categorie: 'Action',
-  title: 'The Hunger Games',
-  author: 'Suzanne Collins',
-},
-{
-  key:2,
-  categorie: 'Novel',
-  title: 'Ulysses',
-  author: 'James Joyce',
-},
-{
-  key:3,
-  categorie: 'Drama',
-  title: 'Don Quixote',
-  author: 'Herman Melville',
-}];
 
 const Book = () => {
+  const bookList = useSelector(state => bookState);
   return (
     <div>
       <ul>
