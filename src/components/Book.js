@@ -4,7 +4,9 @@ import {bookState} from "./redux/books/books-state";
 
 
 const Book = () => {
-  const bookList = useSelector(state => bookState);
+  let bookList = useSelector(bookState => bookState.books);
+  console.log(bookState);
+  
   return (
     <div>
       <ul>
