@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import { useDispatch } from 'react-redux';
 
-import addBookAction from './redux/actions';
+import {addBook} from './redux/books/booksReducer';
 
 function AddBook() {
   const inputTitle = document.getElementById('title');
@@ -17,10 +17,10 @@ function AddBook() {
     const key = uuid();
     const categorie = 'islamic';
     
-    dispatch(addBookAction({ key,categorie, title, author}));
+    dispatch(addBook({ key,categorie, title, author}));
+    
     setAuthor('');
     setTitle('');
-
     inputTitle.value = '';
     inputAuthor.value = '';
   };

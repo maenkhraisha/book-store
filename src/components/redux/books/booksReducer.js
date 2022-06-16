@@ -1,25 +1,30 @@
-import bookState from './books-state';
+import { createSlice } from "@reduxjs/toolkit";
 
-const ADD_BOOK = 'ADD_BOOK';
-const REMOVE_BOOK = 'REMOVE_BOOK';
+const bookSlice = createSlice({
+  name: "bookSlice",
+  initialState: [
+    {
+      key: "1",
+      categorie: "Islamic",
+      title: "Islamic Gold Era 444",
+      author: "Maen khraisha",
+    },
+  ],
+  reducers: {
+    addBook : (state, payload) => {
+      state.push( {
+        key: payload.payload.key,
+        categorie: "Islamic",
+        title: payload.payload.title,
+        author: payload.payload.author,
+      })    
+    },
+    removeBook : (state,key) => {
+      console.log(key.payload);
+      return state.filter((s) => s.key !== key.payload);
+    },
+  },
+});
 
-/** reducer */
-export default function bookReducer(state = bookState, action) {
-  switch (action.type) {
-    case ADD_BOOK:
-      return [
-        ...state,
-        {
-          key: action.payload.key,
-          categorie: 'Islamic',
-          title: action.payload.title,
-          author: action.payload.author,
-        },
-      ];
-
-    case REMOVE_BOOK:
-      return state.filter((s) => s.key !== action.key);
-    default:
-      return state;
-  }
-}
+export const { addBook, removeBook } = bookSlice.actions;
+export const  bookReducer  = bookSlice.reducer;
