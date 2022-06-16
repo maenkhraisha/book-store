@@ -11,6 +11,7 @@ export function bookReducer(state = bookState, action) {
         ...state,
         {
           key: ++state.length,
+          categorie : 'Islamic',
           title: action.payload.title,
           author: action.payload.author,
         },

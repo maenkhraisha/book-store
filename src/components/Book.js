@@ -7,24 +7,25 @@ const Book = (book) => {
     const keyValue = e.target.value;
     dispatch({ type: "REMOVE_BOOK", payload: { key: keyValue } });
   };
-  
-  const {author,key,title} = book.props;
+
+  const {categorie, author, key, title } = book.props;
   return (
     <div>
       <ul>
-          <li key={key}>
-            <p>{title}</p>
-            <p>{author}</p>
-            <button type="button">Comments</button>
-            <button
-              value={key}
-              onClick={(e) => removeBookHandler(e)}
-              type="button"
-            >
-              Remove
-            </button>
-            <button type="button">Edit</button>
-          </li>
+        <li key={key}>
+          <p>{categorie}</p>
+          <p>{title}</p>
+          <p>{author}</p>
+          <button type="button">Comments</button>
+          <button
+            value={key}
+            onClick={(e) => removeBookHandler(e)}
+            type="button"
+          >
+            Remove
+          </button>
+          <button type="button">Edit</button>
+        </li>
       </ul>
     </div>
   );
