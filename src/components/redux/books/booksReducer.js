@@ -6,11 +6,12 @@ const REMOVE_BOOK = 'REMOVE_BOOK';
 /** reducer */
 export default function bookReducer(state = bookState, action) {
   switch (action.type) {
+    
     case ADD_BOOK:
       return [
         ...state,
         {
-          key: state.length + 1,
+          key: action.payload.key,
           categorie: 'Islamic',
           title: action.payload.title,
           author: action.payload.author,
@@ -18,7 +19,7 @@ export default function bookReducer(state = bookState, action) {
       ];
 
     case REMOVE_BOOK:
-      return state.filter((s) => s.key !== parseInt(action.payload.key, 10));
+      return state.filter((s) => s.key !== action.payload.key);
     default:
       return state;
   }

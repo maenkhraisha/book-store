@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
 import { useDispatch } from 'react-redux';
 
@@ -12,7 +13,9 @@ function AddBook() {
   const [author, setAuthor] = useState('');
 
   const addHandler = () => {
-    dispatch({ type: 'ADD_BOOK', payload: { title, author } });
+    const key = uuid();
+    console.log(key);
+    dispatch({ type: 'ADD_BOOK', payload: {key ,title, author } });
     setAuthor('');
     setTitle('');
 
