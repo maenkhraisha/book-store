@@ -17,11 +17,8 @@ export function bookReducer(state = bookState, action) {
       ];
 
     case REMOVE_BOOK:
-      console.log("remove book");
-      return {
-        ...state.slice(0, action.id),
-        ...state.slice(action.id + 1),
-      };
+      console.log("try to remove");
+      return state.filter((s)=>s.key!== parseInt(action.payload.key))
     default:
       return state;
   }
@@ -38,10 +35,4 @@ export function bookReducer(state = bookState, action) {
 //   },
 // });
 
-export function removeBook() {
-  return {
-    type: REMOVE_BOOK,
-    title: "",
-    author: "",
-  };
-}
+

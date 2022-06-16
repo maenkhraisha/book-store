@@ -1,25 +1,30 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import {bookState} from "./redux/books/books-state";
+import { useDispatch } from "react-redux";
 
-
-const Book = () => {
-  let bookList = useSelector(bookState => bookState.books);
-  console.log(bookState);
+const Book = (book) => {
+  const dispatch = useDispatch();
+  const removeBookHandler = (e) => {
+    const keyValue = e.target.value;
+    dispatch({ type: "REMOVE_BOOK", payload: { key: keyValue } });
+  };
   
+  const {author,key,title} = book.props;
   return (
     <div>
       <ul>
-        {bookList.map((b) => (
-          <li key={b.key}>
-            <p>{b.categorie}</p>
-            <p>{b.title}</p>
-            <p>{b.author}</p>
+          <li key={key}>
+            <p>{title}</p>
+            <p>{author}</p>
             <button type="button">Comments</button>
-            <button type="button">Remove</button>
+            <button
+              value={key}
+              onClick={(e) => removeBookHandler(e)}
+              type="button"
+            >
+              Remove
+            </button>
             <button type="button">Edit</button>
           </li>
-        ))}
       </ul>
     </div>
   );

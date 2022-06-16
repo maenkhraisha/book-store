@@ -1,13 +1,19 @@
-import React from 'react';
-import Book from '../components/Book';
-import AddBook from '../components/AddBook';
+import React from "react";
+import { useSelector } from "react-redux";
 
-
+import Book from "../components/Book";
+import AddBook from "../components/AddBook";
 
 function Books() {
+  let bookList = useSelector((bookState) => bookState.books);
+
   return (
     <div>
-      <Book />      
+      
+      {bookList.map((book) => (
+        <Book key={book.key} props={book} />
+      ))}
+
       <AddBook />
     </div>
   );
