@@ -1,11 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { removeBook } from './redux/actions';
 
 const Book = (book) => {
   const dispatch = useDispatch();
   const removeBookHandler = (e) => {
     const keyValue = e.target.value;
-    dispatch({ type: 'REMOVE_BOOK', payload: { key: keyValue } });
+    dispatch(removeBook( keyValue));
   };
 
   const { props } = book;

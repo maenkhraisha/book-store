@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { v4 as uuid } from 'uuid';
-
 import { useDispatch } from 'react-redux';
+
+import addBookAction from './redux/actions';
 
 function AddBook() {
   const inputTitle = document.getElementById('title');
@@ -14,7 +15,9 @@ function AddBook() {
 
   const addHandler = () => {
     const key = uuid();
-    dispatch({ type: 'ADD_BOOK', payload: { key, title, author } });
+    const categorie = 'islamic';
+    
+    dispatch(addBookAction({ key,categorie, title, author}));
     setAuthor('');
     setTitle('');
 
