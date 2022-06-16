@@ -14,8 +14,7 @@ function AddBook() {
 
   const addHandler = () => {
     const key = uuid();
-    console.log(key);
-    dispatch({ type: 'ADD_BOOK', payload: {key ,title, author } });
+    dispatch({ type: 'ADD_BOOK', payload: { key, title, author } });
     setAuthor('');
     setTitle('');
 
