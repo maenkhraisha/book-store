@@ -1,14 +1,19 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React from 'react';
+import { useDispatch } from 'react-redux';
 
 const Book = (book) => {
   const dispatch = useDispatch();
   const removeBookHandler = (e) => {
     const keyValue = e.target.value;
-    dispatch({ type: "REMOVE_BOOK", payload: { key: keyValue } });
+    dispatch({ type: 'REMOVE_BOOK', payload: { key: keyValue } });
   };
 
-  const {categorie, author, key, title } = book.props;
+  const { props } = book;
+  /* eslint-disable react/prop-types */
+  const {
+    categorie, author, key, title,
+  } = props;
+
   return (
     <div>
       <ul>

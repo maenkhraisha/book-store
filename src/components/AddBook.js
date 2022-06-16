@@ -1,24 +1,24 @@
-import React from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from 'react';
+
+import { useDispatch } from 'react-redux';
 
 function AddBook() {
-  const inputTitle = document.getElementById("title");
-  const inputAuthor = document.getElementById("author");
+  const inputTitle = document.getElementById('title');
+  const inputAuthor = document.getElementById('author');
 
   const dispatch = useDispatch();
 
-  const addHandler = () => {
-    dispatch({ type: "ADD_BOOK", payload: { title: title, author: author } });
-    setAuthor("");
-    setTitle("");
-    
-    inputTitle.value = "";
-    inputAuthor.value = "";
-  };
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
 
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
+  const addHandler = () => {
+    dispatch({ type: 'ADD_BOOK', payload: { title, author } });
+    setAuthor('');
+    setTitle('');
+
+    inputTitle.value = '';
+    inputAuthor.value = '';
+  };
 
   return (
     <form>

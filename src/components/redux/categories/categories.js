@@ -1,5 +1,3 @@
-import React from "react";
-
 const inistialState = [{}];
 const CHECK_STATUS = 'CHECK_STATUS';
 
