@@ -1,17 +1,19 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
 import Book from '../components/Book';
 import AddBook from '../components/AddBook';
 
-const bookList = {
-  categorie: 'Action',
-  title: 'The Hunger Games',
-  author: 'Suzanne Collins',
-};
-
 function Books() {
+  const bookList = useSelector((bookState) => bookState.books);
+
   return (
     <div>
-      <Book books={bookList} />
+
+      {bookList.map((book) => (
+        <Book key={book.key} props={book} />
+      ))}
+
       <AddBook />
     </div>
   );

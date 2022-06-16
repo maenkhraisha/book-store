@@ -1,23 +1,44 @@
-import React from 'react';
-import { store } from './redux/configureStore';
+import React, { useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
-function add() {
-  const inputName = document.getElementById('title');
-  const inputAuthor = document.getElementById('author');
-
-  store.dispatch({
-    type: 'ADD_BOOK',
-    title: inputName.value,
-    author: inputAuthor.value,
-  });
-}
+import { useDispatch } from 'react-redux';
 
 function AddBook() {
+  const inputTitle = document.getElementById('title');
+  const inputAuthor = document.getElementById('author');
+
+  const dispatch = useDispatch();
+
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+
+  const addHandler = () => {
+    const key = uuid();
+    dispatch({ type: 'ADD_BOOK', payload: { key, title, author } });
+    setAuthor('');
+    setTitle('');
+
+    inputTitle.value = '';
+    inputAuthor.value = '';
+  };
+
   return (
     <form>
-      <input type="text" id="title" name="title" />
-      <input type="text" id="author" name="author" />
-      <button onClick={add} type="button">
+      Title :
+      <input
+        type="text"
+        onChange={(e) => setTitle(e.target.value)}
+        id="title"
+        name="title"
+      />
+      Author:
+      <input
+        type="text"
+        onChange={(e) => setAuthor(e.target.value)}
+        id="author"
+        name="author"
+      />
+      <button onClick={addHandler} type="button">
         Add Book
       </button>
     </form>
