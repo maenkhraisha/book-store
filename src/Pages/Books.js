@@ -1,18 +1,13 @@
-import React,{useEffect} from "react";
-import { useDispatch, useSelector } from 'react-redux/es/exports';
+import React from 'react';
+import { useSelector } from 'react-redux/es/exports';
 
-import Book from "../components/Book";
-import AddBook from "../components/AddBook";
-import { getBooks } from '../components/redux/books/booksReducer';
+import Book from '../components/Book';
+import AddBook from '../components/AddBook';
+import SendPOSTButton from '../components/redux/API/SendPOSTButton';
 
 function Books() {
   let bookList = useSelector((bookState) => bookState.books);
   bookList = bookList.entities;
-
-  const dispatch = useDispatch();
-  useEffect(()=>{
-    dispatch(getBooks(), [])
-  });
 
   return (
     <div>
@@ -21,6 +16,7 @@ function Books() {
       ))}
 
       <AddBook />
+      <SendPOSTButton />
     </div>
   );
 }

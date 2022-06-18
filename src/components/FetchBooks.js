@@ -1,6 +1,6 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { getBooks } from "./redux/books/booksReducer";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { getBooks } from './redux/books/booksReducer';
 
 const FetchBooks = () => {
   const dispatch = useDispatch();
