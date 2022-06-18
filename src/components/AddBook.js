@@ -14,13 +14,12 @@ function AddBook() {
   const [author, setAuthor] = useState('');
 
   const addHandler = () => {
-    const item_id = uuid();
+    const itemId = uuid();
     const category = 'islamic';
 
     dispatch(sendBook({
-      item_id, category, title, author,
-    }),[]);
-   
+      itemId, category, title, author,
+    }), []);
 
     setAuthor('');
     setTitle('');

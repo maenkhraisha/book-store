@@ -11,13 +11,13 @@ import { getBooks } from './components/redux/books/booksReducer';
 
 function App() {
   const dispatch = useDispatch();
+  dispatch(getBooks(), []);
   return (
     <div>
       <Router>
         <Header />
         <Routes>
           <Route
-          {...dispatch(getBooks(), [])}
             path="/books"
             element={<Books />}
           />

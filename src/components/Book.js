@@ -1,30 +1,31 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { removeBook } from './redux/books/booksReducer';
 
 const Book = (book) => {
-  
-  // const dispatch = useDispatch();
-  // const removeBookHandler = (e) => {
-  //   const keyValue = e.target.value;
-  //   dispatch(removeBook(keyValue));
-  // };
+  const dispatch = useDispatch();
+  const removeBookHandler = (e) => {
+    const keyValue = e.target.value;
+    dispatch(removeBook(keyValue), []);
+  };
 
   const { props } = book;
   /* eslint-disable react/prop-types */
-  const { item_id, category, author, title } = props;
-  
+  const {
+    itemId, category, author, title,
+  } = props;
+
   return (
     <div>
       <ul>
-        <li key={item_id}>
+        <li key={itemId}>
           <p>{category}</p>
           <p>{title}</p>
           <p>{author}</p>
           <button type="button">Comments</button>
           <button
-            value={item_id}
-            // onClick={(e) => removeBookHandler(e)}
+            value={itemId}
+            onClick={(e) => removeBookHandler(e)}
             type="button"
           >
             Remove

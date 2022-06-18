@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux/es/exports';
 
 import Book from '../components/Book';
 import AddBook from '../components/AddBook';
-import SendPOSTButton from '../components/redux/API/SendPOSTButton';
 
 function Books() {
   let bookList = useSelector((bookState) => bookState.books);
@@ -16,7 +15,6 @@ function Books() {
       ))}
 
       <AddBook />
-      <SendPOSTButton />
     </div>
   );
 }
