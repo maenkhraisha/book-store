@@ -6,25 +6,28 @@ const Book = (book) => {
   const dispatch = useDispatch();
   const removeBookHandler = (e) => {
     const keyValue = e.target.value;
+
     dispatch(removeBook(keyValue), []);
   };
 
   const { props } = book;
+  /* eslint-disable camelcase */
   /* eslint-disable react/prop-types */
+
   const {
-    itemId, category, author, title,
+    item_id, category, author, title,
   } = props;
 
   return (
     <div>
       <ul>
-        <li key={itemId}>
+        <li key={item_id}>
           <p>{category}</p>
           <p>{title}</p>
           <p>{author}</p>
           <button type="button">Comments</button>
           <button
-            value={itemId}
+            value={item_id}
             onClick={(e) => removeBookHandler(e)}
             type="button"
           >

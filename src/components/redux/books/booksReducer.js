@@ -9,17 +9,18 @@ export const getBooks = createAsyncThunk(
 );
 
 export const sendBook = createAsyncThunk('book/addBook', async (payload) => {
-  payload = {...payload,
-    item_id:payload.itemId,
-  }
+  const payload2 = {
+    ...payload,
+    item_id: payload.itemId,
+  };
   await fetch(request, {
     method: 'POST',
-    body: JSON.stringify(payload),
+    body: JSON.stringify(payload2),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
   });
-  return payload;
+  return payload2;
 });
 
 export const removeBook = createAsyncThunk('book/deleteBook', async (payload) => {
