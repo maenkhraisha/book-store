@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { v4 as uuid } from 'uuid';
-
 import { useDispatch } from 'react-redux';
+
+import { sendBook } from './redux/books/booksReducer';
 
 function AddBook() {
   const inputTitle = document.getElementById('title');
@@ -13,11 +14,17 @@ function AddBook() {
   const [author, setAuthor] = useState('');
 
   const addHandler = () => {
-    const key = uuid();
-    dispatch({ type: 'ADD_BOOK', payload: { key, title, author } });
+    const itemId = uuid();
+    const category = 'islamic';
+
+
+
+    dispatch(sendBook({
+      itemId, category, title, author,
+    }), []);
+
     setAuthor('');
     setTitle('');
-
     inputTitle.value = '';
     inputAuthor.value = '';
   };

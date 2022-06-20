@@ -1,15 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import bookReducer from './books/booksReducer';
+import { applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+import { bookReducer } from './books/booksReducer';
 import { categorieReducer } from './categories/categories';
-import bookState from './books/books-state';
 
 const store = configureStore({
   reducer: {
     books: bookReducer,
-    categories: categorieReducer,
+    categorie: categorieReducer,
   },
-  bookState,
-});
+}, applyMiddleware(thunk));
 
 export default store;
