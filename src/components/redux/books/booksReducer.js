@@ -1,7 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import {useDispatch} from 'react-redux';
+
 
 const getURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/GorvPCNNZt9xnS7jfgYY/books/';
 const request = new Request(getURL);
+
+
 
 export const getBooks = createAsyncThunk(
   'book/getBooks',
@@ -20,6 +24,7 @@ export const sendBook = createAsyncThunk('book/addBook', async (payload) => {
       'Content-type': 'application/json; charset=UTF-8',
     },
   });
+
   return payload2;
 });
 
@@ -38,7 +43,9 @@ const getBookSlice = createSlice({
     entities: [],
     loading: false,
   },
-  reducers: {},
+  reducers: {
+  
+  },
   extraReducers: {
     [getBooks.fulfilled]: (state, action) => {
       state.entities.splice(0, state.entities.length);
@@ -59,7 +66,13 @@ const getBookSlice = createSlice({
       state.entities.push(payload);
     },
     [removeBook.fulfilled]: (state, { payload }) => {
-      state.entities.filter((s) => s.item_Id !== payload);
+      // console.log("remove book");
+      // for(let i=0;i<state.entities.length ;i++){
+      //   console.log('this is state',state.entities[i].itemId==payload);
+      //   console.log('this is payload',typeof(payload));
+      // }
+
+      state.entities = state.entities.filter((s) => s.itemId !== payload);
     },
   },
 });
